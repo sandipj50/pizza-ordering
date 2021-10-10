@@ -4,8 +4,8 @@
   "description": "This is a realtime pizza app.",
   "main": "index.js",
   "scripts": {
-    "start" : "nodemon server.js",
-    "serve" : "node server.js",
+    "start": "nodemon server.js",
+    "serve": "node server.js",    
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -19,6 +19,10 @@
     "express-ejs-layouts": "^2.5.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.13"
+    "laravel-mix": "^6.0.32",
+    "nodemon": "^2.0.13",
+    "resolve-url-loader": "^4.0.0",
+    "sass": "^1.42.1",
+    "sass-loader": "^12.1.0"
   }
 }
