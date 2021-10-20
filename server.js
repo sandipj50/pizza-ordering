@@ -18,11 +18,12 @@ const connection = mongoose.connection;
 connection.on('error',console.error.bind(console, "connection error: "));
 connection.once('open',()=>{
     console.log('Database connected...');
-})
+});
+
 //Session store
 let mongoStore = MongoDbStore.create({
     mongoUrl : url,
-})
+});
 //Session config
 app.use(session({
     secret:process.env.COOKIE_SECRET,
@@ -38,8 +39,14 @@ app.use(flash());
 
 //Assests
 app.use(express.static('public'));
+app.use(express.json());
 
+//Global middleware
 
+app.use((req,res,next)=>{
+    res.locals.session = req.session;
+    next();
+})
 //Set template engine
 app.use(expressLayout);
 app.set('views',path.join(__dirname,'resources/views'));
