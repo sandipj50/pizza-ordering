@@ -1,5 +1,6 @@
 import axios from 'axios'; 
 import Noty from 'noty';
+import  initAdmin  from './admin'
 
 let addToCart = document.querySelectorAll('.add-to-cart');
 let cartCounter = document.querySelector('#cartCounter');
@@ -34,3 +35,18 @@ addToCart.forEach((btn)=>{
 
  
 });
+
+//Remove alert message after x second
+
+const alertMsg = document.querySelector('#sucess-alert');
+if(alertMsg){
+    setTimeout(()=>{
+        alertMsg.remove();
+    },2000);
+}
+
+let adminAreaPath = window.location.pathname;
+if(adminAreaPath.includes('admin')){
+    initAdmin()
+
+}
